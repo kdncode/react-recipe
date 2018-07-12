@@ -20,7 +20,6 @@ class Recipe extends Component {
         console.log(this.state.activeRecipe)
     }
     
-
     render() {
 
         const recipe = this.state.activeRecipe;
@@ -28,7 +27,6 @@ class Recipe extends Component {
         return (
             <div className="container">
                 { this.state.activeRecipe.length !== 0 && // Nothing shows up until the page actually loads
-
                     <div className="active-recipe">
                         <h3 className="active-recipe__title">{recipe.title}</h3>
                         <img className="active-recipe__img" src={recipe.image_url} alt={recipe.title}/>
