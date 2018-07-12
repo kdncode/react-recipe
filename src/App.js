@@ -17,13 +17,9 @@ class App extends Component {
 	getReceipe = async (e) => {
 		const recipeName = e.target.elements.recipeName.value;
 		e.preventDefault();
-		
-		const api_call = await fetch(`http://cors-anywhere.herokuapp.com/http://food2fork.com/api/search?key=${API_KEY}&q=${recipeName}`);
-		
+		const api_call = await fetch(`http://cors-anywhere.herokuapp.com/http://food2fork.com/api/search?key=${API_KEY}&q=${recipeName}`);		
 		const data = await api_call.json();
-
 		this.setState({ recipes: data.recipes })
-
 		console.log(this.state.recipes)
 	}
 
@@ -33,13 +29,11 @@ class App extends Component {
 		this.setState({ recipes: recipes });
 	}
 	
-
 	componentDidUpdate = () => {
 		const recipes = JSON.stringify(this.state.recipes);
 		localStorage.setItem('recipes', recipes);
 	}
 	
-
 	render() {
 		return (
 			<div className="App">
@@ -48,6 +42,7 @@ class App extends Component {
 				</header>
 				<Form getReceipe={this.getReceipe}/>
 				<Recipes recipes={this.state.recipes}/>
+				<p>2018 Khoa Nguyen</p>
 			</div>
 		);
 	}
